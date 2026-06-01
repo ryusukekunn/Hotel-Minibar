@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 99 102 241;
+    --color-secondary: 245 158 11;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    overscroll-behavior: none;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+
+  /* Selekcija */
+  ::selection {
+    @apply bg-hotel-600/30 text-hotel-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-hotel-600 hover:bg-hotel-500 active:bg-hotel-700 text-white font-medium 
+           px-4 py-3 rounded-xl transition-all duration-150 touch-manipulation
+           focus:outline-none focus:ring-2 focus:ring-hotel-500 focus:ring-offset-2 
+           focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed
+           select-none;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-slate-100 font-medium
+           px-4 py-3 rounded-xl transition-all duration-150 touch-manipulation
+           focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2
+           focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed
+           select-none;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-medium
+           px-4 py-3 rounded-xl transition-all duration-150 touch-manipulation
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+           focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed
+           select-none;
+  }
+
+  .btn-success {
+    @apply bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-medium
+           px-4 py-3 rounded-xl transition-all duration-150 touch-manipulation
+           focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
+           focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed
+           select-none;
+  }
+
+  .card {
+    @apply bg-slate-800/60 border border-slate-700/50 rounded-2xl backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:bg-slate-800 hover:border-slate-600 
+           active:scale-[0.99] cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-800 border border-slate-700 text-slate-100 rounded-xl px-4 py-3
+           focus:outline-none focus:ring-2 focus:ring-hotel-500 focus:border-transparent
+           placeholder-slate-500 transition-all duration-150;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-400 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full inline-block;
+  }
+
+  /* Animacija za učitavanje */
+  .skeleton {
+    @apply animate-pulse bg-slate-700/50 rounded-lg;
+  }
+
+  /* Touch optimizacija */
+  .touch-item {
+    @apply min-h-[48px] flex items-center touch-manipulation select-none;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-hotel-400 to-gold-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Animacija za PWA install prompt */
+@keyframes slideUpFade {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pwa-prompt {
+  animation: slideUpFade 0.3s ease-out forwards;
+}
+
+/* Onemogući zoom na input poljima na iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px !important;
+  }
+}
