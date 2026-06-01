@@ -1,4 +1,3 @@
-
 # 🍾 Hotel Minibar Management System
 
 Produkcijska PWA aplikacija za upravljanje minibarom u hotelima. Omogućava komunikaciju između recepcije i sobarica za praćenje konzumacije i naplate minibar artikala.
@@ -346,6 +345,3 @@ profiles (korisnici)
 ## Licenca
 
 MIT — slobodni ste da koristite i prilagodite za vaš hotel.
-
-
-
